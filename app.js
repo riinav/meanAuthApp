@@ -8,6 +8,9 @@ const mongoose = require('mongoose');
 // initialize our node app with Express
 const app = express();
 
+// get user routes
+const users = require('./routes/users');
+
 // port number
 const port = 3000;
 
@@ -16,6 +19,8 @@ app.use(cors());
 
 // bodyParser middleware
 app.use(bodyParser.json());
+
+app.use('/users', users);
 
 // index route
 app.get('/', (req, res) => {
